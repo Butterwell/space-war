@@ -1,0 +1,38 @@
+---
+rendered objects:
+  - sun
+  - ship1
+  - ship2
+  - bullets
+
+shapes:
+  - ship1: triangle
+  - ship2: bar
+  - sun: circle
+  - bullets: circle
+
+commands:
+  - thrust
+  - rotateLeft
+  - rotateRight
+  - fire
+
+command keys:
+  - 'case "KeyA": thrust(ship1); break'
+  - 'case "KeyQ": rotateLeft(ship1); break'
+  - 'case "KeyZ": rotateRight(ship1); break'
+  - 'case "ShiftLeft": fire(ship1); break'
+  - 'case "Quote": thrust(ship2); break'
+  - 'case "Slash": rotateLeft(ship2); break'
+  - 'case "BracketRight": rotateRight(ship2); break'
+  - 'case "ShiftRight": fire(ship2); break'
+
+html: |
+  <body>
+  
+  <script src="../tree-sitter.js"/>
+  <script>
+    const Parser = window.TreeSitter;
+    Parser.init().then(() => { /* the library is ready */ });
+  </script>
+  </body>

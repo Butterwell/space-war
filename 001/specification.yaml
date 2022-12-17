@@ -1,0 +1,15 @@
+---
+rendered objects:
+  - sun
+  - ship1
+  - ship2
+  - bullets
+
+command keys:
+  - a: ship1 thrust
+  - q: ship1 rotate left
+  - z: ship1 rotate right
+  - left shift: ship1 fire
+  - ': ship2 thrust
+  - /: ship2 rotate left
+  - ]: ship2 rotate right

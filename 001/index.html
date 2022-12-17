@@ -1,0 +1,39 @@
+<body>
+    <script>
+const thrustAmount = 1
+const twoPI = Math.PI * 2
+const rotateAmount = twoPI / 360
+
+const trust = function(thrustable) {
+    thrustable.thrust += thrustAmount
+}
+
+const rotateLeft = function(rotateable) {
+    rotateable.angle = (rotateable.angle + twoPI - rotateAmount ) % twoPI
+}
+
+const inputHandler = function(e) {
+    switch (e.key) {
+        case "a":
+            thrust(ship1)
+            break
+        case "q":
+            rotateLeft(ship1)
+            break
+        case "z":
+            rotateRight(ship1)
+            break
+        case "'":
+            thrust(ship2)
+            break
+        case "/":
+            rotateLeft(ship2)
+            break
+        case "]":
+            rotateRight(ship2)
+            break
+        default:
+    }
+}
+    </script>
+</body>
