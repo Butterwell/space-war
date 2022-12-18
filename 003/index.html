@@ -1,0 +1,99 @@
+<body>
+<script src="../tree-sitter.js"/>
+<script>
+  const Parser = window.TreeSitter;
+  Parser.init().then(() => { /* the library is ready */ });
+</script>
+<style>
+  #world {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+  }
+  .placed {
+    position: relative;
+  }
+</style>
+<div id="world">
+  <div id="ship1" class="placed">V</div>
+  <div id="ship2" class="placed">I</div>
+  <div id="sun" class="placed">o</div>
+</div>
+<script>
+
+const twoPI = Math.PI*2.0
+const minX = -1
+const maxX = 1
+const minY = -1
+const maxY = 1
+
+const maxThrust = 10
+
+const handler = function(e) {
+  switch(e.code) {
+
+case "KeyA": thrust(ship1); break
+case "KeyQ": rotateLeft(ship1); break
+case "KeyZ": rotateRight(ship1); break
+case "ShiftLeft": fire(ship1); break
+case "Quote": thrust(ship2); break
+case "Slash": rotateLeft(ship2); break
+case "BracketRight": rotateRight(ship2); break
+case "ShiftRight": fire(ship2); break
+
+}}
+
+const thrust = (d) => d
+const rotateLeft = (d) => d
+const rotateRight = (d) => d
+const fire = (d) => d
+
+let sun = { position: { x: 0, y: 0 }}
+let ship1 = { position: { x: -0.5, y: 0 }}
+let ship2 = { position: { x: 0.5, y: 0 }}
+
+const move = (delta, o) => {
+  // Translate from -1..1 to 0..2 for easy wrap math and then translate back
+  o.position.x = (o.position.x + o.velocity.x + 1.0) % 2.0 - 1.0
+  o.position.y = (o.position.y + o.velocity.y + 1.0) % 2.0 - 1.0
+}
+
+const updateShip = (delta, ship) => {
+  move(delta, ship)
+}
+
+const update = (delta) => {
+  updateShip(delta, ship1)
+  updateShip(delta, ship2)
+}
+
+const ship1Element = document.getElementById('ship1')
+const ship2Element = document.getElementById('ship2')
+ship1.element = shi
+
+const renderShip(ship) => {
+
+}
+const render = (delta) => {
+  renderShip(ship1)
+  renderShip(ship2)
+  renderSun(sun)
+}
+
+let lastTick = performance.now()
+
+function tick(nowish) {
+  const delta = nowish - lastTick
+  lastTick = nowish
+
+  update(delta)
+  render(delta)
+
+  window.requestAnimationFrame(tick)
+}
+
+window.requestAnimationFrame(tick)
+
+</script>
+</body>
+

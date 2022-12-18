@@ -28,3 +28,10 @@ Generate empty functions from known commands. Specify inital location of sun, sh
 YAML parameters generate inital code.
 One file 'raw' JavaScript, HTML, and CSS
 
+### Earthlog 2022-12-18 03:09 UTC
+#### What Worked
+Generating a template to work from. Identifying more major components and encoding some of them in the specification. The specification is rich enough that there was plenty of known work to be done. Using characters as a first aproximation of graphics: "V", "I", "o", and "." Fixing the previous "cheating". Generating code from constant data.
+#### What Got in the Way
+Working on the generation tools beyond the deadline because didn't punt on failing to get multiline data in YAML to work as a subfield. Having to build a tick/update/render (event/model/render) structure manually. No object/entity generalization.
+#### Proposed Tooling
+Add tick, update, and render templates. Entity: id, name, subsystem structure to YAML and generated code.
